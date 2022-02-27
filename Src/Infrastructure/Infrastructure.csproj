@@ -4,4 +4,12 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Config\" />
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Data\Services\" />
+    <Folder Include="Data\Repositories\" />
+    <Folder Include="Identity\Migrations\" />
+  </ItemGroup>
+
 </Project>
