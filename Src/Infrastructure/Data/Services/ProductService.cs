@@ -1,6 +1,8 @@
 ﻿using ApplicationCore.Entities;
 using ApplicationCore.Interfaces.Repositories;
 using ApplicationCore.Interfaces.Services;
+using Ardalis.Specification;
+using Ardalis.Specification.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -67,6 +69,22 @@ namespace Infrastructure.Data.Services
             dbProduct.CategoryId = product.CategoryId;
             dbProduct.BrandId = product.BrandId;
             _productRepository.UpdateAsync(dbProduct);
+        }
+
+        private IQueryable<Product> ApplySpecification(ISpecification<Product> spec)
+        {
+            var evaluator = new SpecificationEvaluator();
+            return evaluator.GetQuery(_dbContext.Set<Product>().Include(x => x.Pictures), spec);
+        }
+
+        public async Task<int> CountAsync(ISpecification<Product> spec)
+        {
+            return await ApplySpecification(spec).CountAsync();
+        }
+
+        public async Task<List<Product>> ListAsync(ISpecification<Product> spec)
+        {
+            return await ApplySpecification(spec).ToListAsync();
         }
     }
 }

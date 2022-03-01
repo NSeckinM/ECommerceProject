@@ -69,3 +69,44 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+/*-------------------------------------------------------------------------*/
+
+.product-name {
+    height: 2.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.product-image {
+    transition: all .5s;
+    padding: 1rem;
+}
+
+    .product-image:hover {
+        padding: .2rem;
+    }
+
+/*Basket Start*/
+
+.number-input > .quantity {
+    width: 70px;
+}
+
+.empty-basket-icon {
+    font-size: 48px;
+}
+
+/*Basket End*/
+
+.validation-summary-valid {
+    display: none;
+}
+
+.validation-summary-errors > ul {
+    margin-bottom: 0;
+}
+

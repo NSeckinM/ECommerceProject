@@ -29,8 +29,8 @@ namespace Web
 
             //Dependency Injection for Infrastructure
             services.AddInfraServices();
-
-         
+            //Dependency Injection for Web
+            services.AddWebServices();
 
             services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()

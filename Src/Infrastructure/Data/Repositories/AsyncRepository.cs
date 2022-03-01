@@ -1,5 +1,7 @@
 ﻿using ApplicationCore.Common;
 using ApplicationCore.Interfaces.Repositories;
+using Ardalis.Specification;
+using Ardalis.Specification.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -45,5 +47,7 @@ namespace Infrastructure.Data.Repositories
         {
             _dbContext.Set<T>().Update(entity);
         }
+
+
     }
 }

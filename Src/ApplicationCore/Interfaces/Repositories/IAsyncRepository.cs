@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Common;
+using Ardalis.Specification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
