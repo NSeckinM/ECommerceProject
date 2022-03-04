@@ -11,7 +11,7 @@ namespace ApplicationCore.Interfaces.Services
     {
         Task AddPicture(Picture picture);
         Task UpdatePicture(Picture picture);
-        Task DeleteOffer(int pictureId);
+        Task DeletePicture(int pictureId);
 
     }
 }

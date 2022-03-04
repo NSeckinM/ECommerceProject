@@ -30,10 +30,10 @@ namespace Infrastructure.Data.Services
             return Task.FromResult(pic);
         }
 
-        public async Task DeleteOffer(int pictureId)
+        public async Task DeletePicture(int pictureId)
         {
             Picture picture = await _pictureRepository.GetByIdAsync(pictureId);
-            _pictureRepository.DeleteAsync(picture);
+            _pictureRepository.Delete(picture);
         }
 
         public async Task UpdatePicture(Picture picture)

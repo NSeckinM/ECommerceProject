@@ -23,12 +23,14 @@ namespace Infrastructure.Data.Repositories
         public async Task<T> AddAsync(T entity)
         {
             await _dbContext.Set<T>().AddAsync(entity);
+            _dbContext.SaveChanges();
             return entity;
         }
 
-        public async Task DeleteAsync(T entity)
+        public void Delete(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
+            _dbContext.SaveChanges();
 
         }
 
@@ -40,12 +42,14 @@ namespace Infrastructure.Data.Repositories
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _dbContext.Set<T>().FindAsync(id);
+            return _dbContext.Set<T>().Find(id);
         }
 
         public async Task UpdateAsync(T entity)
         {
             _dbContext.Set<T>().Update(entity);
+            _dbContext.SaveChanges();
+
         }
 
 

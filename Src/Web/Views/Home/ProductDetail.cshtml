@@ -1,0 +1,65 @@
+﻿@model ProductViewModelForModal
+
+@{
+    Layout = "~/Views/Shared/_ModalLayout.cshtml";
+}
+<div>
+    <div class="slideshow-container">
+
+        @foreach (var item in Model.Pictures)
+        {
+            <div class="mySlides fade">
+                <img class="card-img-top product-image" src="~/images/products/@item.PictureUri" alt="@item.Product.ProductName" />
+            </div>
+        }
+        <!--<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>-->
+    </div>
+    <div style="text-align:center">
+        @for (int i = 1; i <= Model.Pictures.Count(); i++)
+        {
+            <span class="dot" onclick="currentSlide(i)"></span>
+        }
+    </div>
+</div>
+<div>
+    <div class="col-sm-6 col-lg-4">
+        <div class=" align-content-xl-end">
+            <h6 class="card-title product-name">@Model.ProductName</h6>
+            <p class="card-text d-flex justify-content-between align-items-center">
+                <span class="h5 font-weight-lighter">@Model.Description</span>
+                <span class="h5 font-weight-lighter">@Model.Price.ToString("₺0.00")</span>
+
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+
+            if (slideIndex > slides.length) { slideIndex = 1 }
+
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace("active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+    </script>
+
+}

@@ -34,7 +34,7 @@ namespace Infrastructure.Data.Services
         public async Task DeleteCategory(int categoryId)
         {
             Category category = await _categoryRepository.GetByIdAsync(categoryId);
-            _categoryRepository.DeleteAsync(category);
+            _categoryRepository.Delete(category);
         }
 
         public async Task<List<Category>> GetAllCategory()

@@ -45,8 +45,9 @@
                             <h6 class="card-title product-name">@item.ProductName</h6>
                             <p class="card-text d-flex justify-content-between align-items-center">
 
+
                                 <span class="h5 font-weight-lighter">@item.Price.ToString("₺0.00")</span>
-                                <a data-add-item-to-basket="@item.Id" href="" class="btn btn-outline-dark" title="See Product"><i class="fas fa-info-circle"></i></a>
+                                <a href="#" id="view" class="btn btn-outline-dark" data-target="/home/ProductDetail/@item.Id" title="See Product"><i class="fas fa-info-circle"></i></a>
 
                             </p>
                         </div>
@@ -59,6 +60,58 @@
 
 
 </div>
-    <partial name="_PaginationPartial" model="Model.paginationInfo" />
+<partial name="_PaginationPartial" model="Model.paginationInfo" />
 
+<div class="modal fade" id="modelView" tabindex="-1" role="dialog" aria-labelledby="">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Ürün Detayları</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post">
+                <div class="modal-body">
+                    <!--cshtmlin doldurulacağı kısmı-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Kapat</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
+@section Scripts {
+
+    <script>
+
+$(function () {
+        // a tagimizde #view ile id üzerinden ulaşıp click olduğunda
+        $("body").on("click", "#view", function () {
+            //data-target dan url mizi al
+            var url = $(this).data("target");
+            //bu urlimizi post et
+            $.post(url, function (data) { })
+                //eğer işlemimiz başarılı bir şekilde gerçekleşirse
+            .done(function (data) {
+                //gelen datayı .modal-body mizin içerise html olarak ekle
+                $("#modelView .modal-body").html(data);
+                //sonra da modalimizi göster
+                $("#modelView").modal("show");
+            })
+                //eğer işlem başarısız olursa
+            .fail(function () {
+                //modalımızın bodysine Error! yaz
+                $("#modelView .modal-body").text("Error!!");
+                //sonra da modalimizi göster
+                $("#modelView").modal("show");
+            })
+
+        });
+    })
+
+    </script>
+
+}

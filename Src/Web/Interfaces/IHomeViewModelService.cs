@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApplicationCore.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace Web.Interfaces
     public interface IHomeViewModelService
     {
         Task<HomeViewModel> GetHomeViewModelAsync(int? categoryId, int? brandId, int page);
+        Task<ProductViewModelForModal> GetProductForModalAsync(int id);
 
 
     }

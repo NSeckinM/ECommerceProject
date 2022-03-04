@@ -1,0 +1,19 @@
+﻿@model EditBrandViewModel
+
+<form method="post" asp-area="Admin" asp-controller="Brand" asp-action="EditBrand">
+
+    <input type="hidden" asp-for="Id" a />
+    <div class="form-group">
+
+        <label asp-for="BrandName">Marka Adı</label>
+        <input asp-for="BrandName" class="form-control" />
+        <span asp-validation-for="BrandName" class="text-danger"></span>
+
+    </div>
+    <button class="btn btn-outline-primary">Kaydet</button>
+
+</form>
+
+<div class="mt-3">
+    <a asp-area="Admin" asp-controller="Brand" asp-action="Index" class="btn btn-primary">Geri Dön</a>
+</div>

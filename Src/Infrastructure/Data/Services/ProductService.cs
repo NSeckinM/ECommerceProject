@@ -39,12 +39,12 @@ namespace Infrastructure.Data.Services
         public async Task DeleteProduct(int productId)
         {
             Product product = await _productRepository.GetByIdAsync(productId);
-            _productRepository.DeleteAsync(product);
+            _productRepository.Delete(product);
         }
 
         public Task<List<Product>> GetAllProduct()
         {
-            List<Product> products = _dbContext.Products.Include(x => x.Pictures).ToList();
+            List<Product> products = _dbContext.Products.Include(x => x.Category).Include(x => x.Brand).Include(x => x.Pictures).ToList();
 
             return Task.FromResult(products);
 
@@ -55,7 +55,7 @@ namespace Infrastructure.Data.Services
 
         public Task<Product> GetById(int id)
         {
-            Product product = _dbContext.Products.Include(x => x.Pictures).FirstOrDefault(x => x.Equals(id));
+            Product product = _dbContext.Products.Include(x => x.Pictures).FirstOrDefault(x => x.Id.Equals(id));
             return Task.FromResult(product);
         }
 

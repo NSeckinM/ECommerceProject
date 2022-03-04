@@ -31,13 +31,24 @@ namespace Infrastructure.Data.Services
         public async Task DeleteBrand(int brandId)
         {
             Brand brand = await _brandRepository.GetByIdAsync(brandId);
-            _brandRepository.DeleteAsync(brand);
+            _brandRepository.Delete(brand);
         }
 
         public async Task<List<Brand>> GetAllBrands()
         {
             List<Brand> brands = await _brandRepository.GetAllAsync();
             return brands;
+        }
+
+        public async Task<Brand> GetByIdBrand(int id)
+        {
+            Brand brand = await _brandRepository.GetByIdAsync(id);
+            return brand;
+        }
+
+        public async Task Update(Brand brand)
+        {
+           await _brandRepository.UpdateAsync(brand);
         }
     }
 }

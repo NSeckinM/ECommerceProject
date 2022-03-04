@@ -29,7 +29,6 @@ namespace Web.Services
         {
             var specProducts = new ProdutsFilterSpecification(categoryId, brandId);
 
-           // var totalItemsCount = await _productRepository.CountAsync(specProducts);
             var totalItemsCount = await _productService.CountAsync(specProducts);
 
             var totalPagesCount = (int)Math.Ceiling((decimal)totalItemsCount / Constants.ITEMS_PER_PAGE);
@@ -38,7 +37,6 @@ namespace Web.Services
                 (page - 1) * Constants.ITEMS_PER_PAGE, Constants.ITEMS_PER_PAGE);
 
 
-            //var products = await _productRepository.ListAsync(specPaginatedProducts);
             var products = await _productService.ListAsync(specPaginatedProducts);
 
             var vm = new HomeViewModel()
@@ -82,6 +80,25 @@ namespace Web.Services
         {
             var categories = await _categoryService.GetAllCategory();
             return categories.Select(c => new SelectListItem(c.CategoryName, c.Id.ToString()));
+        }
+
+
+        public async Task<ProductViewModelForModal> GetProductForModalAsync(int id)
+        {
+            Product product =await _productService.GetById(id);
+
+            ProductViewModelForModal productView = new()
+            {
+                Id = product.Id,
+                ProductName = product.ProductName,
+                Price = product.Price,
+                Description = product.Description,
+                PictureUri = product.Pictures[0].PictureUri,
+                Pictures = product.Pictures,
+
+            };
+
+            return productView;
         }
 
 

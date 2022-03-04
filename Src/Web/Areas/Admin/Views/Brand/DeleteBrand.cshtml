@@ -1,0 +1,12 @@
+﻿@model DeleteBrandViewModel
+
+<form method="post" asp-area="Admin" asp-controller="Brand" asp-action="DeleteBrand">
+    <div class="form-control">
+        <input asp-for="Id" type="hidden" />
+        <span> <strong>@Model.BrandName</strong> adlı Marka silinecektir onaylıyor musunuz ?  </span>
+    </div>
+    <div class="mt-3">
+        <button class="btn btn-primary">Evet,Sil</button>
+    </div>
+</form>
+<a asp-area="Admin" asp-controller="Brand" asp-action="Index" class="m-2"> Geri dön </a>

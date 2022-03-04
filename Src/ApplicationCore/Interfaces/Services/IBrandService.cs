@@ -9,11 +9,14 @@ namespace ApplicationCore.Interfaces.Services
 {
     public interface IBrandService
     {
+        Task<Brand> GetByIdBrand(int id);
         Task AddBrand(string brandName);
 
         Task DeleteBrand(int brandId);
 
         Task<List<Brand>> GetAllBrands();
+
+        Task Update(Brand brand);
 
     }
 }

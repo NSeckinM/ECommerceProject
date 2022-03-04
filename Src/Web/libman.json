@@ -9,6 +9,14 @@
     {
       "library": "toastr.js@2.1.4",
       "destination": "wwwroot/lib/toastr.js/"
+    },
+    {
+      "library": "animate.css@4.1.1",
+      "destination": "wwwroot/animate.css/"
+    },
+    {
+      "library": "OwlCarousel2@2.3.4",
+      "destination": "wwwroot/OwlCarousel2/"
     }
   ]
 }

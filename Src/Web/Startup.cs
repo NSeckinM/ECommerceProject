@@ -23,9 +23,9 @@ namespace Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppIdentityDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("AppIdentityDbContext")));
-
             services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("ApplicationDbContext")));
+
+            services.AddDbContext<AppIdentityDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("AppIdentityDbContext")));
 
             //Dependency Injection for Infrastructure
             services.AddInfraServices();
@@ -65,6 +65,15 @@ namespace Web
 
             app.UseEndpoints(endpoints =>
             {
+                app.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllerRoute(
+                      name: "areas",
+                      pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
+                    );
+                });
+
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

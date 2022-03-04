@@ -1,0 +1,71 @@
+﻿@model BrandViewModel
+
+<div class="row">
+    <div class="col-md-4 col-lg-3">
+        <h3>ADMİN PANEL</h3>
+        <div>
+            <a class="list-group-item list-group-item-action" asp-area="Admin" asp-controller="Brand" asp-action="Index">Markalar</a>
+            <a class="list-group-item list-group-item-action" asp-area="Admin" asp-controller="Category" asp-action="Index">Kategoriler</a>
+            <a class="list-group-item list-group-item-action" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Ürünler</a>
+
+        </div>
+    </div>
+
+    <div class="col-md-8 col-lg-9">
+
+        <div class="row">
+            <div class="col-md-4 col-lg-6">
+                <div>
+
+                    <a class="btn btn-primary" asp-area="Admin" asp-controller="Brand" asp-action="CreateBrand">Yeni Marka Oluştur</a>
+
+                </div>
+            </div>
+
+            <div class="col-md-8 col-lg-9">
+                <div>
+
+                    <h3 style="text-align:center">Markalar</h3>
+
+                </div>
+
+                <div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Marka Adı</th>
+                                <th>Düzenle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var item in Model.Brands)
+                            {
+                                <tr>
+                                    <td>
+                                        <strong>@item.BrandName</strong>
+                                    </td>
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="Brand" asp-action="EditBrand" asp-route-id="@item.Id" class="btn btn-outline-success">Düzenle</a>
+                                    </td>
+
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="Brand" asp-action="DeleteBrand" asp-route-id="@item.Id" class="btn btn-outline-danger">Sil</a>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
