@@ -69,7 +69,7 @@ namespace Web
                 {
                     endpoints.MapControllerRoute(
                       name: "areas",
-                      pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
+                      pattern: "{area:exists}/{controller=Product}/{action=Index}/{id?}"
                     );
                 });
 

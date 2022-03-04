@@ -4,16 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Web.ViewModels
+namespace Web.Areas.Admin.Models.ProductViewModels
 {
-    public class ProductViewModel
+    public class DeleteProductViewModel
     {
-
         public int Id { get; set; }
         public string ProductName { get; set; }
-        public string PictureUri { get; set; }
-        public decimal Price { get; set; }
-        public List<Picture> Pictures { get; set; }
 
+        public string CategoryName { get; set; }
+
+        public string BrandName { get; set; }
     }
 }

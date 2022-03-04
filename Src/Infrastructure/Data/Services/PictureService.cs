@@ -21,19 +21,20 @@ namespace Infrastructure.Data.Services
         }
         public Task AddPicture(Picture picture)
         {
-            Picture pic = new()
-            {
-                PictureUri = picture.PictureUri,
-                ProductId = picture.ProductId
-            };
-            _pictureRepository.AddAsync(pic);
-            return Task.FromResult(pic);
+            _pictureRepository.AddAsync(picture);
+            return Task.FromResult(picture);
         }
 
         public async Task DeletePicture(int pictureId)
         {
             Picture picture = await _pictureRepository.GetByIdAsync(pictureId);
             _pictureRepository.Delete(picture);
+        }
+
+        public async Task<Picture> GetByIdPicture(int id)
+        {
+            Picture picture = await _pictureRepository.GetByIdAsync(id);
+            return picture;
         }
 
         public async Task UpdatePicture(Picture picture)

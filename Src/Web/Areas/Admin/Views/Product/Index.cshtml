@@ -4,7 +4,7 @@
     <div class="col-md-4 col-lg-3">
         <h3>ADMİN PANEL</h3>
         <div>
-            <a class="list-group-item list-group-item-action" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Ürünler</a>
+            <a class="list-group-item list-group-item-action" asp-area="Admin" asp-controller="Product" asp-action="Index">Ürünler</a>
             <a class="list-group-item list-group-item-action" asp-area="Admin" asp-controller="Category" asp-action="Index">Kategoriler</a>
             <a class="list-group-item list-group-item-action" asp-area="Admin" asp-controller="Brand" asp-action="Index">Markalar</a>
 
@@ -12,12 +12,12 @@
     </div>
 
     <div class="col-md-8 col-lg-9">
- 
+
         <div class="row">
             <div class="col-md-4 col-lg-6">
                 <div>
 
-                    <a class="btn btn-primary" asp-area="Admin" asp-controller="Dashboard" asp-action="CreateProduct">Yeni Ürün Oluştur</a>
+                    <a class="btn btn-primary" asp-area="Admin" asp-controller="Product" asp-action="CreateProduct">Yeni Ürün Oluştur</a>
 
                 </div>
             </div>
@@ -40,6 +40,8 @@
                                 <th>Marka</th>
                                 <th>Düzenle</th>
                                 <th>Sil</th>
+                                <th>Fotoğraf Ekle</th>
+                                <th>Fotoğraf Sil</th>
                             </tr>
                         </thead>
 
@@ -65,11 +67,20 @@
                                 </td>
 
                                 <td>
-                                    <a asp-area="Admin" asp-controller="Dashboard" asp-action="EditProduct" asp-route-id="@item.Id" class="btn btn-outline-success">Düzenle</a>
+                                    <a asp-area="Admin" asp-controller="Product" asp-action="EditProduct" asp-route-id="@item.Id" class="btn btn-outline-success">Düzenle</a>
                                 </td>
 
                                 <td>
-                                    <a asp-area="Admin" asp-controller="Dashboard" asp-action="DeleteProduct" asp-route-id="@item.Id" class="btn btn-outline-danger">Sil</a>
+                                    <a asp-area="Admin" asp-controller="Product" asp-action="DeleteProduct" asp-route-id="@item.Id" class="btn btn-outline-danger">Sil</a>
+                                </td>
+
+
+                                <td>
+                                    <a asp-area="Admin" asp-controller="Product" asp-action="AddPhoto" asp-route-id="@item.Id" class="btn btn-outline-success"><i class="fa-solid fa-images"></i></a>
+                                </td>
+
+                                <td>
+                                    <a asp-area="Admin" asp-controller="Product" asp-action="DeletePhoto" asp-route-id="@item.Id" class="btn btn-outline-danger"><i class="fa-solid fa-images"></i></a>
                                 </td>
 
                             </tr>
@@ -83,5 +94,6 @@
 
         </div>
 
-</div>
+    </div>
 
+</div>

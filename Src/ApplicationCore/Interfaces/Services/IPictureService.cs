@@ -9,6 +9,7 @@ namespace ApplicationCore.Interfaces.Services
 {
     public interface IPictureService
     {
+        Task<Picture> GetByIdPicture(int id);
         Task AddPicture(Picture picture);
         Task UpdatePicture(Picture picture);
         Task DeletePicture(int pictureId);

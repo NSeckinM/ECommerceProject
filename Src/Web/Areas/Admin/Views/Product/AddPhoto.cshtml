@@ -1,0 +1,27 @@
+﻿@model AddPhotoViewModel
+
+
+<h1>Ürün Fotoğrafı</h1>
+
+<div class="d-flex">
+
+
+    @*<div>
+        <vc:profile-photo genislik="200" yukseklik="200" sinif="" />
+    </div>*@
+    <div>
+
+        <form class="p-5" method="post" asp-area="Admin" asp-controller="Product" asp-action="AddPhoto" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" a />
+            <label for="photo">Yüklenecek resim:</label> <br />
+            <input type="file" accept="image/*" name="photo" id="photo" /> @*sadece image türünden file kabul eden input*@
+            <button class="btn btn-outline-primary">Yükle</button>
+            <div class="text-danger">
+                @Html.ValidationMessage("photo") @*htmlhelper kullandık photo anahtar kelimeli bir hata alırsa gösterecek modelden parametreye gerek kalmadı*@
+            </div>
+        </form>
+    </div>
+
+
+
+</div>

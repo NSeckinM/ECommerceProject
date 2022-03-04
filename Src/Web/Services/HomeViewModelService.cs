@@ -43,6 +43,7 @@ namespace Web.Services
             {
                 Products = products.Select(p => new ProductViewModel()
                 {
+
                     Id = p.Id,
                     ProductName = p.ProductName,
                     Pictures = p.Pictures,

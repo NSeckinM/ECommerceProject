@@ -24,16 +24,8 @@ namespace Infrastructure.Data.Services
         }
         public Task AddProduct(Product product)
         {
-            Product product1 = new()
-            {
-                ProductName = product.ProductName,
-                Description = product.Description,
-                BrandId = product.BrandId,
-                CategoryId = product.CategoryId,
-                Price = product.Price,
-            };
-            _productRepository.AddAsync(product1);
-            return Task.FromResult(product1);
+            _productRepository.AddAsync(product);
+            return Task.FromResult(product);
         }
 
         public async Task DeleteProduct(int productId)
@@ -55,20 +47,13 @@ namespace Infrastructure.Data.Services
 
         public Task<Product> GetById(int id)
         {
-            Product product = _dbContext.Products.Include(x => x.Pictures).FirstOrDefault(x => x.Id.Equals(id));
+            Product product = _dbContext.Products.Include(x => x.Category).Include(x => x.Brand).Include(x => x.Pictures).FirstOrDefault(x => x.Id.Equals(id));
             return Task.FromResult(product);
         }
 
         public async Task UpdateProduct(Product product)
         {
-            Product dbProduct = await _productRepository.GetByIdAsync(product.Id);
-
-            dbProduct.ProductName = product.ProductName;
-            dbProduct.Description = product.Description;
-            dbProduct.Price = product.Price;
-            dbProduct.CategoryId = product.CategoryId;
-            dbProduct.BrandId = product.BrandId;
-            _productRepository.UpdateAsync(dbProduct);
+            _productRepository.UpdateAsync(product);
         }
 
         private IQueryable<Product> ApplySpecification(ISpecification<Product> spec)

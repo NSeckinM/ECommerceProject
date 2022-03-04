@@ -9,7 +9,7 @@
         @foreach (var item in Model.Pictures)
         {
             <div class="mySlides fade">
-                <img class="card-img-top product-image" src="~/images/products/@item.PictureUri" alt="@item.Product.ProductName" />
+                <img class="card-img-top product-image" src="~/images/products/@item.PictureUri" style="width:500px; height:500px" alt="@item.Product.ProductName" />
             </div>
         }
         <!--<a class="prev" onclick="plusSlides(-1)">&#10094;</a>

@@ -39,17 +39,23 @@
             {
 
                 <div class="col-sm-6 col-lg-4">
-                    <div class="card mb-3">
+                    <div class="card card-img-bottom m-3 w-100 h-100 toast-bottom-full-width ">
+                        <div>
                         <img class="card-img-top product-image" src="~/images/products/@item.PictureUri" alt="@item.ProductName" />
-                        <div class="card-body">
-                            <h6 class="card-title product-name">@item.ProductName</h6>
-                            <p class="card-text d-flex justify-content-between align-items-center">
+                        </div>
 
+                        <div class="card-body">
+                            <div class="m-auto" style="height=250; width=250;">
+                            <h6 class="card-title product-name">@item.ProductName</h6>
+                            </div>
+                            <div>
+                            <p class="card-text d-flex justify-content-between align-items-center">
 
                                 <span class="h5 font-weight-lighter">@item.Price.ToString("₺0.00")</span>
                                 <a href="#" id="view" class="btn btn-outline-dark" data-target="/home/ProductDetail/@item.Id" title="See Product"><i class="fas fa-info-circle"></i></a>
-
                             </p>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -60,7 +66,10 @@
 
 
 </div>
+<div class="m-5">
 <partial name="_PaginationPartial" model="Model.paginationInfo" />
+
+</div>
 
 <div class="modal fade" id="modelView" tabindex="-1" role="dialog" aria-labelledby="">
     <div class="modal-dialog modal-lg" role="document">
@@ -68,7 +77,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="myModalLabel">Ürün Detayları</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="close">
-                <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form method="post">
@@ -87,30 +96,30 @@
 
     <script>
 
-$(function () {
-        // a tagimizde #view ile id üzerinden ulaşıp click olduğunda
-        $("body").on("click", "#view", function () {
-            //data-target dan url mizi al
-            var url = $(this).data("target");
-            //bu urlimizi post et
-            $.post(url, function (data) { })
-                //eğer işlemimiz başarılı bir şekilde gerçekleşirse
-            .done(function (data) {
-                //gelen datayı .modal-body mizin içerise html olarak ekle
-                $("#modelView .modal-body").html(data);
-                //sonra da modalimizi göster
-                $("#modelView").modal("show");
-            })
-                //eğer işlem başarısız olursa
-            .fail(function () {
-                //modalımızın bodysine Error! yaz
-                $("#modelView .modal-body").text("Error!!");
-                //sonra da modalimizi göster
-                $("#modelView").modal("show");
-            })
+        $(function () {
+            // a tagimizde #view ile id üzerinden ulaşıp click olduğunda
+            $("body").on("click", "#view", function () {
+                //data-target dan url mizi al
+                var url = $(this).data("target");
+                //bu urlimizi post et
+                $.post(url, function (data) { })
+                    //eğer işlemimiz başarılı bir şekilde gerçekleşirse
+                    .done(function (data) {
+                        //gelen datayı .modal-body mizin içerise html olarak ekle
+                        $("#modelView .modal-body").html(data);
+                        //sonra da modalimizi göster
+                        $("#modelView").modal("show");
+                    })
+                    //eğer işlem başarısız olursa
+                    .fail(function () {
+                        //modalımızın bodysine Error! yaz
+                        $("#modelView .modal-body").text("Error!!");
+                        //sonra da modalimizi göster
+                        $("#modelView").modal("show");
+                    })
 
-        });
-    })
+            });
+        })
 
     </script>
 

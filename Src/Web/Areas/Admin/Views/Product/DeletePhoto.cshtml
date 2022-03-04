@@ -1,0 +1,27 @@
+﻿@model DeletePhotoViewModel
+
+<div>
+    <h3>Ürünün Fotoğrafları</h3>
+</div>
+<br />
+<div class="float-container">
+
+    @foreach (var item in Model.Pictures)
+    {
+        <div class="float-child">
+            <img src="~/images/products/@item.PictureUri" width="150" height="150">
+
+            <div style="margin:10px">
+                <a asp-area="Admin" asp-controller="Product" asp-action="DeletePhotoPost" asp-route-id="@item.Id" class="btn btn-outline-danger"><i class="fa-solid fa-images"></i></a>
+            </div>
+        </div>
+    }
+
+</div>
+
+<br />
+<br />
+
+
+
+
