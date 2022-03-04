@@ -1,6 +1,6 @@
 # ECommerce 
 
-Clean Architecture m imarisinden yararlanýlarak bir e-ticaret sitesi geliþtirilmeye çalýþýlmýþtýr.Repository pattern ve Servie yapýsý kullanýlmýþ.
+Clean Architecture mimarisinden yararlanýlarak bir e-ticaret sitesi geliþtirilmeye çalýþýlmýþtýr.Repository pattern ve Service yapýsý kullanýlmýþ.
 Veri tabaný olarak PostgreSql kullanýlmýþtýr. Üyelik sistemi için identity package kullanýlmýþtýr .
 Admin paneli için "seckin@xyz.com" e-mail adresi ve þifre="Seckin123_" olarak tanýmlanmýþtýr. Her türlü ekleme silme ve güncelleme kýsýmlarý için bu panel kullanýlmaktadýr.
 Ayrýca bu projede codefirst olarak ilerlenmiþtir ve baþlangýç için örnek veriler seed edilmiþtir. 
