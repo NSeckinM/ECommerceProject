@@ -16,23 +16,23 @@ Update-Database -Context ApplicationDbContext
 komutlarý projenin çalýþýr hale gelmesi için yeterlidir.
 
 ## Ana sayfa
-<img src=""/>
+<img src="https://github.com/NSeckinM/ECommerceProject/blob/master/Src/ApplicationCore/images/as1.png"/>
 
 ##AdminPanel-Ürün Ekle/Sil/Düzenle
 
-<img src=""/>
+<img src="https://github.com/NSeckinM/ECommerceProject/blob/master/Src/ApplicationCore/images/U1.png"/>
 
 ##AdminPanel-Kategori Ekle/Sil/Düzenle
 
-<img src=""/>
+<img src="https://github.com/NSeckinM/ECommerceProject/blob/master/Src/ApplicationCore/images/K1.png"/>
 
 ##AdminPanel-Marka Ekle/Sil/Düzenle
 
-<img src=""/>
+<img src="https://github.com/NSeckinM/ECommerceProject/blob/master/Src/ApplicationCore/images/M1.png"/>
 
 ##Database
 
-<img src=""/>
+<img src="https://github.com/NSeckinM/ECommerceProject/blob/master/Src/ApplicationCore/images/Db.png"/>
 
 
 
